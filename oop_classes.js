@@ -9,17 +9,33 @@ class Ninja {
         console.log(this.name)
     }
     showStats(){
-        console.log(this.name,this.health, this.speed, this.strength)
+        for (const property in this) {
+            console.log(`${property}: ${this[property]}`);
+        }
+        return this;
     }
     drinkSnake(){
         this.health += 10
     }
 
 }
+class Sensei extends Ninja{
+    constructor(name, wisdom){
+        super(name,200,10,10);
+        this.wisdom = wisdom = 10;
+    }
+    speakWisdom(){
+        superSensei.drinkSnake();
+        console.log("Bottoms up")
+    }
+}
 
 const ninja1 = new Ninja("Hyabusa",100);
+const superSensei = new Sensei("Master Splinter");
 
-
-ninja1.sayName();
-ninja1.showStats();
-ninja1.drinkSnake();
+// ninja1.sayName();
+// ninja1.showStats();
+// ninja1.drinkSnake();
+superSensei.showStats();
+superSensei.speakWisdom();
+superSensei.showStats();
